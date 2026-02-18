@@ -36,7 +36,7 @@
 
 ### Способ 2 — ZIP
 
-1. Скачай [breathfresh.zip](https://github.com/YOUR_USERNAME/breathfresh/releases)
+1. Скачай [breathfresh.zip](https://github.com/zakrut/breathfresh/releases)
 2. Распакуй архив
 3. Следуй шагам 2–6 выше
 
