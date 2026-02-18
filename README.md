@@ -20,14 +20,6 @@
 
 ---
 
-## 📸 Скриншоты
-
-| Главный экран | Прогресс лёгких | Настройки |
-|:---:|:---:|:---:|
-| ![Main](docs/screenshot-main.png) | ![Progress](docs/screenshot-progress.png) | ![Settings](docs/screenshot-settings.png) |
-
----
-
 ## 🚀 Установка
 
 ### Способ 1 — Вручную (Developer Mode)
