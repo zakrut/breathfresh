@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BreathFresh</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+  <div id="screen-main" class="screen active">
+
+    <!-- Шапка -->
+    <div class="header">
+      <div class="logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">BreathFresh</span>
+      </div>
+      <button class="icon-btn" id="btn-settings" title="Настройки">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Мотивационная строка -->
+    <div class="motivation-bar" id="motivation-text">Ты молодец! Продолжай в том же духе 💪</div>
+
+    <!-- 3 блока статистики -->
+    <div class="stats-row">
+
+      <!-- Блок: Дни -->
+      <div class="stat-card" id="card-days">
+        <div class="stat-icon">📅</div>
+        <div class="stat-value" id="val-days">0</div>
+        <div class="stat-label">Дней</div>
+      </div>
+
+      <!-- Блок: Лёгкие % -->
+      <div class="stat-card inactive" id="card-lungs">
+        <div class="stat-icon">🫁</div>
+        <div class="stat-value" id="val-lungs">—</div>
+        <div class="stat-label">Лёгкие</div>
+      </div>
+
+      <!-- Блок: Рубли -->
+      <div class="stat-card inactive" id="card-money">
+        <div class="stat-icon">💰</div>
+        <div class="stat-value" id="val-money">—</div>
+        <div class="stat-label">Рублей</div>
+      </div>
+
+    </div>
+
+    <!-- Прогресс-бар лёгких -->
+    <div class="progress-section" id="progress-section" style="display:none">
+      <div class="progress-label">
+        <span>Восстановление лёгких</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Кнопка "Сдаюсь" -->
+    <button class="btn-quit" id="btn-quit">😮 Сдаюсь</button>
+
+  </div>
+
+  <!-- ===== ЭКРАН НАСТРОЕК ===== -->
+  <div id="screen-settings" class="screen">
+
+    <div class="header">
+      <button class="icon-btn" id="btn-back" title="Назад">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <span class="settings-title">Настройки</span>
+      <button class="text-btn" id="btn-save">Сохранить</button>
+    </div>
+
+    <div class="settings-body">
+
+      <!-- Секция: Дата начала -->
+      <div class="settings-section">
+        <div class="section-label">Начало пути</div>
+        <div class="input-group">
+          <label>Уже не курю (дней)</label>
+          <input type="number" id="input-days-ago" min="0" placeholder="0" />
+        </div>
+      </div>
+
+      <!-- Секция: Стаж курения -->
+      <div class="settings-section">
+        <div class="section-label">Сколько курил(а)</div>
+        <div class="smoking-duration">
+          <div class="duration-item">
+            <input type="number" id="input-years" min="0" placeholder="0" />
+            <label>лет</label>
+          </div>
+          <div class="duration-item">
+            <input type="number" id="input-months" min="0" max="11" placeholder="0" />
+            <label>мес.</label>
+          </div>
+          <div class="duration-item">
+            <input type="number" id="input-dur-days" min="0" max="30" placeholder="0" />
+            <label>дней</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Секция: Экономия -->
+      <div class="settings-section">
+        <div class="section-label">Экономия</div>
+        <div class="input-group">
+          <label>Цена пачки (₽)</label>
+          <input type="number" id="input-pack-price" min="0" placeholder="200" />
+        </div>
+        <div class="input-group">
+          <label>Пачка хватает на (дней)</label>
+          <input type="number" id="input-days-per-pack" min="1" placeholder="1" />
+        </div>
+      </div>
+
+      <!-- Секция: Бейдж иконки -->
+      <div class="settings-section">
+        <div class="section-label">Бейдж на иконке</div>
+        <div class="badge-options">
+          <label class="badge-option">
+            <input type="radio" name="badge-mode" value="days" />
+            <span>Дни</span>
+          </label>
+          <label class="badge-option" id="badge-opt-lungs">
+            <input type="radio" name="badge-mode" value="lungs" />
+            <span>Лёгкие %</span>
+          </label>
+          <label class="badge-option" id="badge-opt-money">
+            <input type="radio" name="badge-mode" value="money" />
+            <span>Рубли</span>
+          </label>
+          <label class="badge-option">
+            <input type="radio" name="badge-mode" value="none" />
+            <span>Скрыть</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== ДИАЛОГ ПОДТВЕРЖДЕНИЯ "СДАЮСЬ" ===== -->
+  <div class="overlay" id="overlay-quit" style="display:none">
+    <div class="dialog">
+      <div class="dialog-icon">😢</div>
+      <div class="dialog-title">Уверен(а)?</div>
+      <div class="dialog-text">Весь прогресс будет сброшен. Ты снова начнёшь с нуля.</div>
+      <div class="dialog-buttons">
+        <button class="btn-dialog-cancel" id="btn-quit-cancel">Нет, держусь!</button>
+        <button class="btn-dialog-confirm" id="btn-quit-confirm">Да, сбросить</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
